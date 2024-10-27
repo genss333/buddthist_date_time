@@ -55,7 +55,7 @@ class DatePickerMaterial extends StatelessWidget {
       child: InputDecorator(
         decoration: InputDecoration(
           filled: true,
-          fillColor: const Color(0xFFBDBDBD),
+          fillColor: const Color(0xfff4f4f4),
           contentPadding: const EdgeInsets.all(10),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
@@ -68,7 +68,7 @@ class DatePickerMaterial extends StatelessWidget {
             Icons.calendar_month_rounded,
             color: enable == true
                 ? ThemeData().primaryColor
-                : const Color(0xFFBDBDBD),
+                : const Color(0xfff4f4f4),
           ),
         ),
         child: Column(
@@ -135,7 +135,7 @@ class DatePickerRangeMaterial extends StatelessWidget {
       child: InputDecorator(
         decoration: InputDecoration(
           filled: true,
-          fillColor: const Color(0xFFBDBDBD),
+          fillColor: const Color(0xfff4f4f4),
           contentPadding: const EdgeInsets.all(10),
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.transparent),
@@ -173,12 +173,12 @@ class DatePickerRangeMaterial extends StatelessWidget {
 
 final _datePickerStyle = MaterialRoundedDatePickerStyle(
   backgroundHeader: ThemeData().primaryColor,
-  backgroundPicker: const Color(0xFFBDBDBD),
+  backgroundPicker: const Color(0xfff4f4f4),
   textStyleDayHeader: ThemeData().textTheme.bodyMedium,
   textStyleDayOnCalendar: ThemeData().textTheme.bodyMedium,
   textStyleYearButton: ThemeData().textTheme.bodyMedium,
   textStyleDayButton: ThemeData().textTheme.bodyMedium,
-  textStyleMonthYearHeader: ThemeData().textTheme.bodyMedium,
+  textStyleMonthYearHeader: ThemeData().textTheme.titleLarge,
   paddingDatePicker: const EdgeInsets.all(8),
   decorationDateSelected: BoxDecoration(
     shape: BoxShape.circle,
@@ -191,8 +191,12 @@ final _datePickerStyle = MaterialRoundedDatePickerStyle(
 );
 
 final _yearPickerStyle = MaterialRoundedYearPickerStyle(
-  backgroundPicker: const Color(0xFFBDBDBD),
-  textStyleYear: ThemeData().textTheme.headlineLarge,
-  textStyleYearSelected: ThemeData().textTheme.headlineLarge,
+  backgroundPicker: const Color(0xfff4f4f4),
+  textStyleYear: const TextStyle(
+    fontSize: 60,
+  ),
+  textStyleYearSelected: const TextStyle(
+    fontSize: 60,
+  ),
   heightYearRow: 100,
 );

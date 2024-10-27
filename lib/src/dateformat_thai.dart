@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class DateFormatThai {
-  static String locale = Intl.getCurrentLocale();
-
   /// return วันที่ เช่น "พุธ 4 พฤศจิกายน 2564 เวลา 14:42 น."
   static String thaiFullDateTime(DateTime? date) {
     if (date == null) {

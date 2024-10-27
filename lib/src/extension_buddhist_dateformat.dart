@@ -1,11 +1,8 @@
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 extension BuddhistCalendarFormatter on DateFormat {
   String formatInBuddhistCalendarThai(DateTime dateTime, [String? locale]) {
-    String? lang = locale ?? 'th_TH';
-
-    initializeDateFormatting(lang, null);
+    String locale = Intl.getCurrentLocale();
 
     if (pattern!.contains('y')) {
       var buddhistDateTime = DateTime(
@@ -18,7 +15,7 @@ extension BuddhistCalendarFormatter on DateFormat {
           dateTime.millisecond,
           dateTime.microsecond);
 
-      if (lang.contains('th')) {
+      if (locale.contains('th')) {
         // Get the year in Buddhist calendar
         var buddhistYear = buddhistDateTime.year + 543;
 
