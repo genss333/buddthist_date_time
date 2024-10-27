@@ -8,8 +8,6 @@ import 'package:buddthist_date_time/buddthist_date_time.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:get/utils.dart';
-// import 'package:intl/intl.dart';
 
 // The M3 sizes are coming from the tokens, but are hand coded,
 // as the current token DB does not contain landscape versions.
@@ -1375,7 +1373,7 @@ class _CalendarRangePickerDialog extends StatelessWidget {
               SizedBox(width: MediaQuery.sizeOf(context).width < 360 ? 42 : 72),
               Expanded(
                 child: Semantics(
-                  label: '$helpText $startDateText to $endDateText',
+                  label: '$helpText $startDateText - $endDateText',
                   excludeSemantics: true,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1391,7 +1389,7 @@ class _CalendarRangePickerDialog extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            ' ${'to_'.tr} ',
+                            ' - ',
                             style: startDateStyle,
                           ),
                           Flexible(

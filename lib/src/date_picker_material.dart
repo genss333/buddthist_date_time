@@ -93,8 +93,8 @@ class DatePickerMaterial extends StatelessWidget {
   }
 }
 
-class DatePickerRangeThaiMaterial extends StatelessWidget {
-  const DatePickerRangeThaiMaterial({
+class DatePickerRangeMaterial extends StatelessWidget {
+  const DatePickerRangeMaterial({
     super.key,
     required this.label,
     this.date,
