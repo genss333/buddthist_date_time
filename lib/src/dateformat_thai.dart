@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class DateFormatThai {
+  static String locale = Intl.getCurrentLocale();
+
   /// return วันที่ เช่น "พุธ 4 พฤศจิกายน 2564 เวลา 14:42 น."
   static String thaiFullDateTime(DateTime? date) {
     if (date == null) {
       return '-';
     }
-    return DateFormat('EEE d MMM y เวลา kk:mm น.')
+    return DateFormat('EEEE d MMMM y เวลา HH:mm น.')
         .formatInBuddhistCalendarThai(date);
   }
 
@@ -17,7 +19,7 @@ class DateFormatThai {
     if (date == null) {
       return '-';
     }
-    return DateFormat('EEE d MMM y').formatInBuddhistCalendarThai(date);
+    return DateFormat('EEE d MMMM y').formatInBuddhistCalendarThai(date);
   }
 
   /// return วันที่ เช่น "4 พฤศจิกายน 2564"
@@ -45,7 +47,7 @@ class DateFormatThai {
     return DateFormat('MMM y').formatInBuddhistCalendarThai(date);
   }
 
-  //return วันที่ เช่น "พุธ 4 พ.ย. 2564"
+  //return วันที่ เช่น "4 พ.ย. 2564"
   static String thaiShortDate(DateTime? date) {
     if (date == null) {
       return '--/---/---';
