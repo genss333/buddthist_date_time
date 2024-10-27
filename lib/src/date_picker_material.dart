@@ -78,13 +78,17 @@ class DatePickerMaterial extends StatelessWidget {
             date != null
                 ? Text(
                     DateFormatThai.thaiDate(date),
-                    style: ThemeData().textTheme.bodyMedium,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
                   )
                 : Text(
                     Intl.getCurrentLocale().contains('th')
                         ? "เลือก วว/ดด/ปป"
                         : "Select dd/mm/yyyy",
-                    style: ThemeData().textTheme.bodyMedium,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
                   )
           ],
         ),
@@ -156,13 +160,17 @@ class DatePickerRangeMaterial extends StatelessWidget {
             date != null
                 ? Text(
                     "${DateFormatThai.thaiDate(date?.start)} - ${DateFormatThai.thaiDate(date?.end)}",
-                    style: ThemeData().textTheme.bodyMedium,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
                   )
                 : Text(
                     Intl.getCurrentLocale().contains('th')
                         ? "เลือก วว/ดด/ปป - วว/ดด/ปป"
                         : "Select dd/mm/yyyy - dd/mm/yyyy",
-                    style: ThemeData().textTheme.bodyMedium,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
                   )
           ],
         ),
