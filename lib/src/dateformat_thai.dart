@@ -4,65 +4,66 @@ import 'package:intl/intl.dart';
 
 class DateFormatThai {
   /// return วันที่ เช่น "พุธ 4 พฤศจิกายน 2564 เวลา 14:42 น."
-  static String thaiFullDateTime(DateTime? date) {
+  static String thaiFullDateTime(DateTime? date, [String? locale]) {
     if (date == null) {
       return '-';
     }
     return DateFormat('EEEE d MMMM y เวลา HH:mm น.')
-        .formatInBuddhistCalendarThai(date);
+        .formatInBuddhistCalendarThai(date, locale);
   }
 
   /// return วันที่ เช่น "พุธ 4 พฤศจิกายน 2564"
-  static String thaiFullDate(DateTime? date) {
+  static String thaiFullDate(DateTime? date, [String? locale]) {
     if (date == null) {
       return '-';
     }
-    return DateFormat('EEE d MMMM y').formatInBuddhistCalendarThai(date);
+    return DateFormat('EEE d MMMM y').formatInBuddhistCalendarThai(date,locale);
   }
 
   /// return วันที่ เช่น "4 พฤศจิกายน 2564"
-  static String thaiDate(DateTime? date) {
+  static String thaiDate(DateTime? date, [String? locale]) {
     if (date == null) {
       return '-';
     }
-    return DateFormat('d MMMM y').formatInBuddhistCalendarThai(date);
+    return DateFormat('d MMMM y').formatInBuddhistCalendarThai(date,locale);
   }
 
   /// return วันที่ เช่น "9 พ.ย. 2564 เวลา 14:42 น."
-  static String thaiDateTime(DateTime? date) {
+  static String thaiDateTime(DateTime? date, [String? locale]) {
     if (date == null) {
       return '-';
     }
     return DateFormat('d MMM y เวลา kk:mm น.')
-        .formatInBuddhistCalendarThai(date);
+        .formatInBuddhistCalendarThai(date,locale);
   }
 
   /// return วันที่ เช่น "พ.ย. 2564"
-  static String thaiMonthYear(DateTime? date) {
+  static String thaiMonthYear(DateTime? date, [String? locale]) {
     if (date == null) {
       return '-';
     }
-    return DateFormat('MMM y').formatInBuddhistCalendarThai(date);
+    return DateFormat('MMM y').formatInBuddhistCalendarThai(date,locale);
   }
 
   //return วันที่ เช่น "4 พ.ย. 2564"
-  static String thaiShortDate(DateTime? date) {
+  static String thaiShortDate(DateTime? date, [String? locale]) {
     if (date == null) {
       return '--/---/---';
     }
-    return DateFormat('d MMM y').formatInBuddhistCalendarThai(date);
+    return DateFormat('d MMM y').formatInBuddhistCalendarThai(date,locale);
   }
 
   //============================= date format utility ========================//
 
-  static String convertShortDateTime(String? date) {
+  static String convertShortDateTime(String? date, [String? locale]) {
     DateFormat inputFormat = DateFormat('dd/MMM/yyyy');
 
     DateTime dateTime = inputFormat.parse(date ?? "");
-    return thaiShortDate(dateTime);
+    return thaiShortDate(dateTime,locale);
   }
 
-  static String convertShortDateRange(DateTimeRange? dateRange) {
+  static String convertShortDateRange(DateTimeRange? dateRange,
+      [String? locale]) {
     if (dateRange == null) {
       return '';
     }
@@ -70,8 +71,8 @@ class DateFormatThai {
     DateTime startDate = dateRange.start;
     DateTime endDate = dateRange.end;
 
-    String formattedStartDate = thaiShortDate(startDate);
-    String formattedEndDate = thaiShortDate(endDate);
+    String formattedStartDate = thaiShortDate(startDate,locale);
+    String formattedEndDate = thaiShortDate(endDate,locale);
 
     return '$formattedStartDate ${'-'} $formattedEndDate';
   }

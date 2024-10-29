@@ -1,7 +1,6 @@
 import 'package:buddthist_date_time/buddthist_date_time.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
-import 'package:intl/intl.dart';
 
 import 'date_picker_custom.dart';
 
@@ -14,6 +13,7 @@ class DatePickerMaterial extends StatelessWidget {
     this.minDate,
     this.maxDate,
     this.enable = true,
+    required this.locale,
   });
 
   final String label;
@@ -22,16 +22,15 @@ class DatePickerMaterial extends StatelessWidget {
   final DateTime? minDate;
   final DateTime? maxDate;
   final bool? enable;
+  final Locale locale;
 
   @override
   Widget build(BuildContext context) {
     void showPicker() async {
       DateTime? picked = await showRoundedDatePicker(
         context: context,
-        locale: Intl.getCurrentLocale().contains('th')
-            ? const Locale('th', 'TH')
-            : const Locale('en', 'US'),
-        era: Intl.getCurrentLocale().contains('th')
+        locale: locale,
+        era: locale.languageCode.contains('th')
             ? EraMode.BUDDHIST_YEAR
             : EraMode.CHRIST_YEAR,
         initialDate: date ?? minDate,
@@ -77,13 +76,13 @@ class DatePickerMaterial extends StatelessWidget {
             const SizedBox(height: 8),
             date != null
                 ? Text(
-                    DateFormatThai.thaiDate(date),
+                    DateFormatThai.thaiDate(date, locale.languageCode),
                     style: const TextStyle(
                       fontSize: 16,
                     ),
                   )
                 : Text(
-                    Intl.getCurrentLocale().contains('th')
+                    locale.languageCode.contains('th')
                         ? "เลือก วว/ดด/ปป"
                         : "Select dd/mm/yyyy",
                     style: const TextStyle(
@@ -106,6 +105,7 @@ class DatePickerRangeMaterial extends StatelessWidget {
     this.minDate,
     this.maxDate,
     this.radius,
+    required this.locale,
   });
 
   final String label;
@@ -114,15 +114,14 @@ class DatePickerRangeMaterial extends StatelessWidget {
   final DateTime? minDate;
   final DateTime? maxDate;
   final double? radius;
+  final Locale locale;
 
   @override
   Widget build(BuildContext context) {
     Future<void> selectDateRange(BuildContext context) async {
       DateTimeRange? picked = await showDateRangePickerCustom(
         context: context,
-        locale: Intl.getCurrentLocale().contains('th')
-            ? const Locale('th', 'TH')
-            : const Locale('en', 'US'),
+        locale: locale,
         initialDateRange: date,
         firstDate: DateTime.now().add(const Duration(days: -365)),
         lastDate: DateTime.now().add(const Duration(days: 365)),
@@ -159,13 +158,13 @@ class DatePickerRangeMaterial extends StatelessWidget {
             const SizedBox(height: 8),
             date != null
                 ? Text(
-                    "${DateFormatThai.thaiDate(date?.start)} - ${DateFormatThai.thaiDate(date?.end)}",
+                    "${DateFormatThai.thaiDate(date?.start, locale.languageCode)} - ${DateFormatThai.thaiDate(date?.end, locale.languageCode)}",
                     style: const TextStyle(
                       fontSize: 16,
                     ),
                   )
                 : Text(
-                    Intl.getCurrentLocale().contains('th')
+                    locale.languageCode.contains('th')
                         ? "เลือก วว/ดด/ปป - วว/ดด/ปป"
                         : "Select dd/mm/yyyy - dd/mm/yyyy",
                     style: const TextStyle(
