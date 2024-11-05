@@ -1,7 +1,7 @@
-name: buddthist_date_time
-description: "A new Flutter package project."
-version: 0.0.1
-homepage: https://flutter.dev
+name: buddthist_date_time_and_date_picker
+description: "A package build for convert date and time to buddhist year and buildin date picker"
+version: 1.0.0
+repository: https://github.com/genss333/buddthist_date_time.git
 
 environment:
   sdk: ^3.5.1
