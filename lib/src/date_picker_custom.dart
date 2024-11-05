@@ -4,7 +4,7 @@
 
 import 'dart:math' as math;
 
-import 'package:buddthist_date_time/buddthist_date_time.dart';
+import 'package:buddthist_date_time_and_date_picker/buddthist_date_time.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
