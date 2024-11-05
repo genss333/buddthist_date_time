@@ -1,4 +1,4 @@
-import 'package:buddthist_date_time/buddthist_date_time.dart';
+import 'package:buddthist_date_time_and_date_picker/buddthist_date_time.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
